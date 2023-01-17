@@ -1,4 +1,4 @@
-package apiTest.day02;
+package com.krafttech.apiTest.day02;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
