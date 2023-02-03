@@ -20,7 +20,7 @@ public class DeSerializationEx {
     }
 
     @Test
-    public void task1() {
+    public void task1() { //json formatındaki body i java formatına çevirme
 
         /**
          * end point => /allusers/alluser -> GET All User
