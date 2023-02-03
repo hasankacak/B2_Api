@@ -55,4 +55,5 @@ public class GsonTest {
         System.out.println("jsonUser = " + jsonUser);
 
     }
+
 }

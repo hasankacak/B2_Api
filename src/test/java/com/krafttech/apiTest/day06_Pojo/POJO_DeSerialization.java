@@ -61,4 +61,5 @@ public class POJO_DeSerialization {
         Assert.assertEquals(oneUser.getUserStatus(), 21);
 
     }
+
 }

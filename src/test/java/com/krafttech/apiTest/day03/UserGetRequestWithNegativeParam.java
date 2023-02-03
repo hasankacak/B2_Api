@@ -1,12 +1,14 @@
 package com.krafttech.apiTest.day03;
 
 import static io.restassured.RestAssured.*;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +53,7 @@ public class UserGetRequestWithNegativeParam {
     And response content-type application/json; charset=UTF-8
     And response body contains "Developer" message
      */
+
     @Test
     public void testQueryParam() {
         Response response = given().accept(ContentType.JSON)
@@ -92,6 +95,5 @@ public class UserGetRequestWithNegativeParam {
         //verify skills
         Assert.assertTrue(response.body().asString().contains("Cypress"));
     }
-
 
 }

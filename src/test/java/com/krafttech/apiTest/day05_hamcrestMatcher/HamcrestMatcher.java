@@ -59,6 +59,7 @@ public class HamcrestMatcher {
          And json data should have "QA" for job
          And json data should have "Junior Developer1" for first user's experience job
           */
+
     @Test
     public void AllUsersWithHamcrest() {
 

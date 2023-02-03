@@ -1,6 +1,7 @@
 package com.krafttech.apiTest.day03;
 
 import static io.restassured.RestAssured.*;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -16,12 +17,12 @@ public class UserGetRequest {
      */
 
     @Test
-    public void test1(){
+    public void test1() {
         Response response = given().accept(ContentType.JSON)
-                .queryParam("pagesize",50)
-                .queryParam("page",1)
+                .queryParam("pagesize", 50)
+                .queryParam("page", 1)
                 .and().when()
-                .get(exLapURL+"/allusers/alluser");
+                .get(exLapURL + "/allusers/alluser");
 
         System.out.println("response.statusCode() = " + response.statusCode());
         response.prettyPrint();
@@ -35,19 +36,20 @@ public class UserGetRequest {
         And json body should contain Thomas Eduson
     */
     @Test
-    public void test2(){
+    public void test2() {
         Response response = given().accept(ContentType.JSON)
-                .pathParam("id","111")
+                .pathParam("id", "111")
                 .when()
-                .get(exLapURL+"/allusers/getbyid/{id}");
+                .get(exLapURL + "/allusers/getbyid/{id}");
 
-        Assert.assertEquals(response.statusCode(),200);
+        Assert.assertEquals(response.statusCode(), 200);
         //Assert.assertEquals(response.contentType(),"application/json; charset=UTF-8");
 
-        Assert.assertEquals(response.header("Content-Type"),"application/json; charset=UTF-8");
-        Assert.assertEquals(response.header("Content-Length"),"636");
+        Assert.assertEquals(response.header("Content-Type"), "application/json; charset=UTF-8");
+        Assert.assertEquals(response.header("Content-Length"), "636");
         Assert.assertTrue(response.body().asString().contains("Thomas Eduson"));
         System.out.println("response.statusCode() = " + response.statusCode());
         //response.prettyPrint();
     }
+
 }

@@ -26,49 +26,47 @@ public class JsonToJavaCollection {
 
         Assert.assertEquals(response.statusCode(), 401);
 
-        Map<String, Object>jsonMap=response.body().as(Map.class);
+        Map<String, Object> jsonMap = response.body().as(Map.class);
         System.out.println("jsonMap = " + jsonMap);
 
         //verify the message
-        String message= (String) jsonMap.get("message");
+        String message = (String) jsonMap.get("message");
         System.out.println("message = " + message);
-        Assert.assertEquals(message,"User not authorized!");
+        Assert.assertEquals(message, "User not authorized!");
 
         //verify the code
         String code = (String) jsonMap.get("code");
         System.out.println("code = " + code);
-        Assert.assertEquals(code,"1200");
+        Assert.assertEquals(code, "1200");
     }
 
     @Test
-    public void allUsersToMap(){
-        Response response=given().accept(ContentType.JSON)
-                .queryParam("pagesize",50)
+    public void allUsersToMap() {
+        Response response = given().accept(ContentType.JSON)
+                .queryParam("pagesize", 50)
                 .queryParam("page", 1)
                 .when().get("/allusers/alluser");
 
-        Assert.assertEquals(response.statusCode(),200);
+        Assert.assertEquals(response.statusCode(), 200);
 
         //we need to de-serialize json response to java collection
         //birden fazla json bulundurduğundan list of map yapmamız gerekiyor
 
-        List<Map<String,Object>>allUsersMap=response.body().as(List.class);
+        List<Map<String, Object>> allUsersMap = response.body().as(List.class);
         System.out.println("allUsersMap = " + allUsersMap);
 
         //ikinci kullanıcı adını assert edelim
         System.out.println("allUsersMap.get(1).get(\"name\") = " + allUsersMap.get(1).get("name"));
-        String name= (String) allUsersMap.get(1).get("name");
-        Assert.assertEquals(name,"isa akyuz");
+        String name = (String) allUsersMap.get(1).get("name");
+        Assert.assertEquals(name, "isa akyuz");
 
         //birinci kullanıcının skill leri
         System.out.println("allUsersMap.get(0).get(\"skills\") = " + allUsersMap.get(0).get("skills"));
 
-
-        List<String> skills= (List<String>) allUsersMap.get(0).get("skills");
+        List<String> skills = (List<String>) allUsersMap.get(0).get("skills");
         Assert.assertEquals(skills.get(0), "PHP");
 
-
-        List<Map<String, Object>> experienceListMap= (List<Map<String, Object>>) allUsersMap.get(0).get("experience");
+        List<Map<String, Object>> experienceListMap = (List<Map<String, Object>>) allUsersMap.get(0).get("experience");
         System.out.println("experienceListMap = " + experienceListMap);
 
         System.out.println("experienceListMap.get(1).get(\"job\") = " + experienceListMap.get(1).get("job"));

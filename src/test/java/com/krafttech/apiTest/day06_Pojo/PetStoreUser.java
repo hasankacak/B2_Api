@@ -114,4 +114,5 @@ public class PetStoreUser {
                 ", userStatus='" + userStatus + '\'' +
                 '}';
     }
+
 }
