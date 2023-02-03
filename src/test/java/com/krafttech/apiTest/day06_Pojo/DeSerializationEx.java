@@ -55,5 +55,4 @@ public class DeSerializationEx {
         Assert.assertEquals(company2, "GHAN II IT BV", "FAILED check Compnay2 name");
 
     }
-
 }

@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import java.util.Map;
 
 public class GsonTest {
+
     /*
     {
     "id": 9222968140497198741,
@@ -20,10 +21,10 @@ public class GsonTest {
      */
 
     @Test
-    public void jsonToMap(){
-        Gson gson=new Gson();
+    public void jsonToMap() {
+        Gson gson = new Gson();
 
-        String myJsonBody= "{\n" +
+        String myJsonBody = "{\n" +
                 "    \"id\": 9222968140497198741,\n" +
                 "    \"username\": \"Jake23\",\n" +
                 "    \"firstName\": \"Jake\",\n" +
@@ -37,20 +38,20 @@ public class GsonTest {
         System.out.println("myJsonBody = " + myJsonBody);
 
         //gson converting to map
-        Map<String,Object> dataMap=gson.fromJson(myJsonBody,Map.class);
+        Map<String, Object> dataMap = gson.fromJson(myJsonBody, Map.class);
         System.out.println("dataMap = " + dataMap);
 
         //gson converting to object class
-        PetStoreUser oneUser=gson.fromJson(myJsonBody,PetStoreUser.class);
+        PetStoreUser oneUser = gson.fromJson(myJsonBody, PetStoreUser.class);
         System.out.println("oneUser = " + oneUser);
 
         //Serialization
         //Java collection or POJO to Json
-        PetStoreUser petStoreUser=new PetStoreUser(11,"Jake2",
-                "Jakyl","Masters","jaky@gmail.com",
-                "Test1234","55512345",22);
+        PetStoreUser petStoreUser = new PetStoreUser(11, "Jake2",
+                "Jakyl", "Masters", "jaky@gmail.com",
+                "Test1234", "55512345", 22);
 
-        String jsonUser=gson.toJson(petStoreUser);
+        String jsonUser = gson.toJson(petStoreUser);
         System.out.println("jsonUser = " + jsonUser);
 
     }

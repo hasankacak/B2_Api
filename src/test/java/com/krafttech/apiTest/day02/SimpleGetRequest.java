@@ -12,7 +12,7 @@ public class SimpleGetRequest {
     String exLapURL = "https://www.krafttechexlab.com/sw/api/v1";
 
     @Test
-    public void tets1() {
+    public void test1() {
         Response response = RestAssured.get(petStoreURL + "/store/inventory");
 
         // print status code

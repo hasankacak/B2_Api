@@ -18,13 +18,13 @@ public class PetStoreUser {
      */
 
     private double id;
-    private  String username;
-    private  String firstName;
-    private  String lastName;
-    private  String email;
-    private  String password;
-    private  String phone;
-    private  double userStatus;
+    private String username;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String phone;
+    private double userStatus;
 
     public double getId() {
         return id;

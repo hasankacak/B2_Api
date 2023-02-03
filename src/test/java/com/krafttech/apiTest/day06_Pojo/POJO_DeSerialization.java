@@ -23,14 +23,13 @@ public class POJO_DeSerialization {
     "userStatus": 21
 }
      */
-
     @BeforeClass
-    public void beforeClass(){
-        baseURI="https://petstore.swagger.io/v2";
+    public void beforeClass() {
+        baseURI = "https://petstore.swagger.io/v2";
     }
 
     @Test
-    public void oneUserPetStore(){
+    public void oneUserPetStore() {
         Response response = RestAssured.given().accept(ContentType.JSON)
                 .and()
                 .pathParam("username", "Jake23")
@@ -39,7 +38,7 @@ public class POJO_DeSerialization {
         System.out.println("response.statusCode() = " + response.statusCode());
 
         //JSON to our petStore object
-        PetStoreUser oneUser=response.body().as(PetStoreUser.class);
+        PetStoreUser oneUser = response.body().as(PetStoreUser.class);
 
         //print all information
         System.out.println("oneUser.getId() = " + oneUser.getId());
@@ -52,17 +51,14 @@ public class POJO_DeSerialization {
         System.out.println("oneUser.getUserStatus() = " + oneUser.getUserStatus());
 
         //verify all information
-
-        Assert.assertEquals(oneUser.getId(),9.2229681404971991E18);
-        Assert.assertEquals(oneUser.getUsername(),"Jake23");
-        Assert.assertEquals(oneUser.getFirstName(),"Jake");
-        Assert.assertEquals(oneUser.getLastName(),"Master");
-        Assert.assertEquals(oneUser.getEmail(),"jake@gmail.com");
-        Assert.assertEquals(oneUser.getPassword(),"Test1234");
-        Assert.assertEquals(oneUser.getPhone(),"55512345");
-        Assert.assertEquals(oneUser.getUserStatus(),21);
-
-
+        Assert.assertEquals(oneUser.getId(), 9.2229681404971991E18);
+        Assert.assertEquals(oneUser.getUsername(), "Jake23");
+        Assert.assertEquals(oneUser.getFirstName(), "Jake");
+        Assert.assertEquals(oneUser.getLastName(), "Master");
+        Assert.assertEquals(oneUser.getEmail(), "jake@gmail.com");
+        Assert.assertEquals(oneUser.getPassword(), "Test1234");
+        Assert.assertEquals(oneUser.getPhone(), "55512345");
+        Assert.assertEquals(oneUser.getUserStatus(), 21);
 
     }
 }
